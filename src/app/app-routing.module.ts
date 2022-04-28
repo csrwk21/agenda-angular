@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CadastrarGestorComponent } from './cadastrar-gestor/cadastrar-gestor.component';
 import { CadastrarSolicitanteComponent } from './cadastrar-solicitante/cadastrar-solicitante.component';
 import { CadastroQuadraComponent } from './cadastro-quadra/cadastro-quadra.component';
 import { ConsultaQuadrasComponent } from './consulta-quadras/consulta-quadras.component';
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: '',  pathMatch: 'full', redirectTo : 'home'},
   { path : 'home', component: HomeComponent},
   { path : 'gestor', component: GestorRaComponent},
+  { path : 'cadastrar-gestor', component: CadastrarGestorComponent},
   { path : 'login', component: LoginComponent},
   { path : 'solicitante', component : SolicitanteComponent},
   { path : 'cadastrar-solicitante', component : CadastrarSolicitanteComponent},

@@ -20,7 +20,7 @@ export class GestorRaComponent implements OnInit {
     this.router.navigate(['/gestor']);
   }
 
-  goSolicitante(){
-    this.router.navigate(['/solicitante']);
+  goManterGestor(){
+    this.router.navigate(['/cadastrar-gestor']);
   }
 }

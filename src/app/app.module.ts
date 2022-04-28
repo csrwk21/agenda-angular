@@ -13,6 +13,7 @@ import { ConsultaQuadrasComponent } from './consulta-quadras/consulta-quadras.co
 import { ServiceService } from './service.service';
 import { QuadraComponent } from './quadra/quadra.component';
 import { CadastrarSolicitanteComponent } from './cadastrar-solicitante/cadastrar-solicitante.component';
+import { CadastrarGestorComponent } from './cadastrar-gestor/cadastrar-gestor.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { CadastrarSolicitanteComponent } from './cadastrar-solicitante/cadastrar
     ReservaQuadraComponent,
     ConsultaQuadrasComponent,
     QuadraComponent,
-    CadastrarSolicitanteComponent
+    CadastrarSolicitanteComponent,
+    CadastrarGestorComponent
   ],
   imports: [
     BrowserModule,
