@@ -5,10 +5,8 @@ export class Endereco {
   bairro: string;
   localidade: string;
   uf: string;
-  unidade: string;
   ibge: string;
   gia: string;
-
-  erro: boolean;
-
+  ddd : string;
+  siafi : string;
 }

@@ -13,6 +13,6 @@ export class ServiceService {
   constructor(private http : HttpClient ) { }
 
   getAdressByCep(cep : string) : Observable<Endereco> {
-    return this.http.get<Endereco>('https://viacep.com.br/ws/${cep}/json/');
+    return this.http.get<any>('https://viacep.com.br/ws/'+ cep + '/json');
   }
 }
