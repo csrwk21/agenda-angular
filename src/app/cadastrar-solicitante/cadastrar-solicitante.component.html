@@ -14,7 +14,7 @@
 
             <div class="col-md-6 mb-2 pt-1">
                 <label class="form-label">CEP:</label>
-                <input type="text" class="form-control form-control-sm" id="cep"  (keyup.enter)="searchByCep()" formControlName="cep">
+                <input type="text" class="form-control form-control-sm" id="cep" (blur)="pesquisaCep()" formControlName="cep">
             </div>
 
             <div class="col-md-8 mb-2 pt-1">
@@ -62,7 +62,7 @@
 
         <div class="row">
             <div class="col-md-10 d-flex flex-row-reverse me-5">
-                <button type="submit" class="btn btn-primary btn-sm btn btn-success mb-3 me-5">Enviar</button>
+                <button type="submit" class="btn btn-primary btn-sm btn btn-success mb-3 me-5" (click)="cadastrarSolicitante()" >Enviar</button>
                 <button type="submit" class="btn btn-primary btn-sm btn btn-danger mb-3 me-3">Cancelar</button>
             </div>
         </div>

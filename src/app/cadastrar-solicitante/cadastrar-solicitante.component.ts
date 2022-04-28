@@ -46,7 +46,7 @@ export class CadastrarSolicitanteComponent implements OnInit {
     })
   }
 
-  searchByCep(){
+  pesquisaCep(){
     let cep = this.formEndereco.get('cep')?.value;
     
     this.servico.getAdressByCep(cep).subscribe( endereco =>{
@@ -57,8 +57,12 @@ export class CadastrarSolicitanteComponent implements OnInit {
       this.formEndereco.controls['logradouro'].setValue(this.end.bairro);
       this.formEndereco.controls['localidade'].setValue(this.end.localidade);
       this.formEndereco.controls['complemento'].setValue(this.end.complemento);
-      
+
     })
+  }
+
+  cadastrarSolicitante(){
+
   }
 
 }
