@@ -1,6 +1,7 @@
 import { Endereco } from "./endereco.model";
 
 export class Solicitante {
+    id: number;
     nome : string;
     cpf : string;
     rg : string;
@@ -8,4 +9,5 @@ export class Solicitante {
     email: string;
     telefone : string;
     endereco : Endereco;
+    dtRegistro : Date;
 }
