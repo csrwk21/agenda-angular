@@ -10,12 +10,12 @@ import { SolicitanteComponent } from './solicitante/solicitante.component';
 import { CadastroQuadraComponent } from './cadastro-quadra/cadastro-quadra.component';
 import { ReservaQuadraComponent } from './reserva-quadra/reserva-quadra.component';
 import { ConsultaQuadrasComponent } from './consulta-quadras/consulta-quadras.component';
-import { ServiceService } from './service.service';
 import { QuadraComponent } from './quadra/quadra.component';
 import { CadastrarSolicitanteComponent } from './cadastrar-solicitante/cadastrar-solicitante.component';
 import { CadastrarGestorComponent } from './cadastrar-gestor/cadastrar-gestor.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { ServicoAgenda } from './servicoAgenda.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -37,7 +37,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [ServiceService],
+  providers: [ServicoAgenda],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

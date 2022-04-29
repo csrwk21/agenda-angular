@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
-import { HomeComponent } from '../home/home.component';
+import { Endereco } from '../model/endereco.model';
+import { Quadra } from '../model/quadra.model';
+import { ServicoAgenda } from '../servicoAgenda.service';
 
 @Component({
   selector: 'app-cadastro-quadra',
@@ -10,9 +13,15 @@ import { HomeComponent } from '../home/home.component';
 })
 export class CadastroQuadraComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  formQuadra: FormGroup;
+
+  endereco: Endereco;
+
+  constructor(private router: Router, private servico: ServicoAgenda, 
+   private formBuilder : FormBuilder) { }
 
   ngOnInit(): void {
+    this.enderecoForm(new Quadra);
   }
 
   goGestor(){
@@ -25,6 +34,36 @@ export class CadastroQuadraComponent implements OnInit {
 
   goCadastrarQuadra(){
     this.router.navigate(['/quadra']);
+  }
+
+  enderecoForm(quadra: Quadra) {
+    this.formQuadra = this.formBuilder.group({
+      nome : [''],
+      qtdPessoas: [''],
+      ra: [],
+      cep: [''],
+      logradouro: [''],
+      complemento: [''],
+      bairro: [''],
+      localidade: [''],
+      uf: ['']
+    })
+  }
+
+  pesquisaCep(){
+    let cep = this.formQuadra.get('cep')?.value;
+    
+    //sevico viaCep
+    this.servico.getAdressByCep(cep).subscribe( enderecoViaCep =>{
+      this.endereco = enderecoViaCep;
+      console.log(this.endereco);
+
+      this.formQuadra.controls['bairro'].setValue(this.endereco.bairro);
+      this.formQuadra.controls['logradouro'].setValue(this.endereco.logradouro);
+      this.formQuadra.controls['localidade'].setValue(this.endereco.localidade);
+      this.formQuadra.controls['uf'].setValue(this.endereco.uf);
+
+    })
   }
 
 }

@@ -1,17 +1,17 @@
 <home></home>
 
 <div class="container-fluid">
-    <form class="row">
+    <form class="row" [formGroup]="formQuadra">
         <div class="col-md-4 ps-5 ">
             <div class="col-md-6 mb-2 pt-4">
                 <label class="form-label">Nome Ginásio/Quadra:</label>
-                <input type="text" class="form-control form-control-sm" id="nomeQuadra">
+                <input type="text" class="form-control form-control-sm" id="nomeQuadra" formControlName="nome">
             </div>
 
             <div class="col-md-6 mb-3 pt-2">
                 <div class="col-md-12 mb-3 pt-2">
                 <label class="form-label">Região Administrativa:</label>
-                <input class="form-control form-control-sm" list="ListaRegiao" id="exampleDataList" placeholder="Selecione uma Região...">
+                <input class="form-control form-control-sm" list="ListaRegiao" id="exampleDataList" placeholder="Selecione uma Região..." formControlName="ra">
                     <datalist id="ListaRegiao">
                     <option value="1">
                     <option value="2">
@@ -23,23 +23,23 @@
 
             <div class="col-md-10 mb-2 pt-2">
                 <label class="form-label">Logradouro:</label>
-                <input type="text" class="form-control form-control-sm" id="logradouro">
+                <input type="text" class="form-control form-control-sm" id="logradouro" formControlName="logradouro" >
             </div>
 
             <div class="col-md-10 mb-2 pt-2">
                 <label class="form-label">Bairro:</label>
-                <input type="text" class="form-control form-control-sm" id="Bairro">
+                <input type="text" class="form-control form-control-sm" id="Bairro" formControlName="bairro" >
             </div>
 
 
             <div class="col-md-10 mb-2 pt-2">
                 <label class="form-label">Localidade:</label>
-                <input type="text" class="form-control form-control-sm" id="localidade">
+                <input type="text" class="form-control form-control-sm" id="localidade" formControlName="localidade" >
             </div>
 
             <div class="col-md-2 mb-2 pt-2">
                 <label class="form-label">UF:</label>
-                <input type="text" class="form-control form-control-sm"  maxlength="2" id="uf">
+                <input type="text" class="form-control form-control-sm"  maxlength="2" id="uf" formControlName="uf" >
             </div>
 
             </div>
@@ -48,12 +48,12 @@
         <div class="col-md-2">
             <div class="col-md-8 mb-2 pt-4">
                 <label class="form-label">capacidade:</label>
-                <input type="text" class="form-control form-control-sm" id="capacidade">
+                <input type="text" class="form-control form-control-sm" id="qtdPessoas" formControlName="qtdPessoas">
             </div>
 
             <div class="col-md-8 mb-2 pt-2">
                 <label class="form-label">CEP:</label>
-                <input type="text" class="form-control form-control-sm" id="cep">
+                <input type="text" class="form-control form-control-sm" id="cep" formControlName="cep" (blur)="pesquisaCep()">
             </div>
         </div>
 

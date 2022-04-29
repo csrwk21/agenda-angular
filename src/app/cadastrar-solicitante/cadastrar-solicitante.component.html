@@ -1,15 +1,15 @@
 <home></home>
 <div class="container-fluid">
-    <form class="row" [formGroup]="formEndereco">
+    <form class="row" [formGroup]="formSolicitante">
         <div class="col-md-4 ps-5 ">
             <div class="col-md-8 mb-3 pt-4">
                 <label class="form-label">Nome Completo:</label>
-                <input type="text" class="form-control form-control-sm" id="nome">
+                <input type="text" class="form-control form-control-sm" id="nome" formControlName="nome">
             </div>
 
             <div class="col-md-6 mb-2 pt-1">
                 <label class="form-label">RG:</label>
-                <input type="text" class="form-control form-control-sm" id="rg">
+                <input type="text" class="form-control form-control-sm" id="rg" formControlName="rg">
             </div>
 
             <div class="col-md-6 mb-2 pt-1">
@@ -41,22 +41,22 @@
         <div class="col-md-4 ps-0 ms-0">
             <div class="col-md-4 pt-4 mb-3 pt-1">
                 <label class="form-label">CPF:</label>
-                <input type="text" class="form-control form-control-sm" id="cpf">
+                <input type="text" class="form-control form-control-sm" id="cpf" formControlName="cpf">
             </div>
             <div class="col-md-4 mb-3 pt-1">
                 <label class="form-label">Telefone:</label>
-                <input type="tel" class="form-control form-control-sm" id="telefone">
+                <input type="tel" class="form-control form-control-sm" id="telefone" formControlName="telefone">
             </div>
         </div>
 
         <div class="col-md-4 ps-0 ms-0">
             <div class="col-md-4 pt-4 mb-3 pt-1">
                 <label class="form-label">E-mail:</label>
-                <input type="email" class="form-control form-control-sm" id="email">
+                <input type="email" class="form-control form-control-sm" id="email" formControlName="email">
             </div>
             <div class="col-md-4 mb-3 pt-1">
                 <label class="form-label">Data Nascimento:</label>
-                <input type="date" class="form-control form-control-sm" id="dataNascimento">
+                <input type="date" class="form-control form-control-sm" id="dataNascimento" formControlName="dataNascimento">
             </div>
         </div>
 

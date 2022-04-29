@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Endereco } from '../model/endereco.model';
-import { ServiceService } from '../service.service';
+import { Solicitante } from '../model/solicitante.model';
+import { ServicoAgenda } from '../servicoAgenda.service';
 
 @Component({
   selector: 'app-cadastrar-solicitante',
@@ -11,58 +12,54 @@ import { ServiceService } from '../service.service';
 })
 export class CadastrarSolicitanteComponent implements OnInit {
 
-  formEndereco: FormGroup;
-  end: Endereco;
+  formSolicitante: FormGroup;
+  endereco: Endereco;
 
-  constructor(private router: Router, private formBuilder: FormBuilder, private servico : ServiceService) { }
+  constructor(private router: Router, private formBuilder: FormBuilder,
+    private servico: ServicoAgenda) { }
 
   ngOnInit(): void {
-    this.enderecoForm(new Endereco);
+    this.enderecoForm(new Solicitante);
   }
 
   goCadastrarSolicitante() {
     this.router.navigate(['/solicitante']);
   }
 
-  criarFormularioEndereco(endereco: Endereco) {
-    this.formEndereco = new FormGroup({
-      cep: new FormControl(endereco.cep),
-      logradouro: new FormControl(endereco.logradouro),
-      complemento: new FormControl(endereco.logradouro),
-      bairro: new FormControl(endereco.bairro),
-      localidade: new FormControl(endereco.localidade),
-      uf: new FormControl(endereco.uf)
-    });
-  }
-
-  enderecoForm(endereco: Endereco) {
-    this.formEndereco = this.formBuilder.group({
-      cep: [endereco.cep],
-      logradouro: [endereco.logradouro],
-      complemento: [endereco.complemento],
-      bairro: [endereco.bairro],
-      localidade: [endereco.localidade],
-      uf: [endereco.uf]
+  enderecoForm(solicitante: Solicitante) {
+    this.formSolicitante = this.formBuilder.group({
+      nome: [''],
+      rg: [''],
+      cpf: [''],
+      telefone: [''],
+      email: [''],
+      dataNascimento: [''],
+      cep: [''],
+      logradouro: [''],
+      complemento: [''],
+      bairro: [''],
+      localidade: [''],
+      uf: ['']
     })
   }
 
-  pesquisaCep(){
-    let cep = this.formEndereco.get('cep')?.value;
-    
-    this.servico.getAdressByCep(cep).subscribe( endereco =>{
-      this.end = endereco;
-      console.log(this.end);
+  pesquisaCep() {
+    let cep = this.formSolicitante.get('cep')?.value;
 
-      this.formEndereco.controls['bairro'].setValue(this.end.bairro);
-      this.formEndereco.controls['logradouro'].setValue(this.end.bairro);
-      this.formEndereco.controls['localidade'].setValue(this.end.localidade);
-      this.formEndereco.controls['complemento'].setValue(this.end.complemento);
+    //sevico viaCep
+    this.servico.getAdressByCep(cep).subscribe(enderecoViaCep => {
+      this.endereco = enderecoViaCep;
+      console.log(this.endereco);
+
+      this.formSolicitante.controls['bairro'].setValue(this.endereco.bairro);
+      this.formSolicitante.controls['logradouro'].setValue(this.endereco.logradouro);
+      this.formSolicitante.controls['localidade'].setValue(this.endereco.localidade);
+      this.formSolicitante.controls['complemento'].setValue(this.endereco.complemento);
 
     })
   }
 
-  cadastrarSolicitante(){
-
+  cadastrarSolicitante() {
   }
 
 }

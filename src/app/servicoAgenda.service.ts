@@ -8,7 +8,7 @@ import { Endereco } from './model/endereco.model';
 })
 
 @Injectable()
-export class ServiceService {
+export class ServicoAgenda{
 
   constructor(private http : HttpClient ) { }
 
