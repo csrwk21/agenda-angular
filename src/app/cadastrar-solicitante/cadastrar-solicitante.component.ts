@@ -6,7 +6,7 @@ import { Solicitante } from '../model/solicitante.model';
 import { ServicoAgenda } from '../servicoAgenda.service';
 
 @Component({
-  selector: 'app-cadastrar-solicitante',
+  selector: 'cadastrar-solicitante',
   templateUrl: './cadastrar-solicitante.component.html',
   styleUrls: ['./cadastrar-solicitante.component.css']
 })

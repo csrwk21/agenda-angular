@@ -6,7 +6,7 @@ import { Quadra } from '../model/quadra.model';
 import { ServicoAgenda } from '../servicoAgenda.service';
 
 @Component({
-  selector: 'app-cadastro-quadra',
+  selector: 'cadastro-quadra',
   templateUrl: './cadastro-quadra.component.html',
   styleUrls: ['./cadastro-quadra.component.css'],
 
@@ -62,7 +62,6 @@ export class CadastroQuadraComponent implements OnInit {
       this.formQuadra.controls['logradouro'].setValue(this.endereco.logradouro);
       this.formQuadra.controls['localidade'].setValue(this.endereco.localidade);
       this.formQuadra.controls['uf'].setValue(this.endereco.uf);
-
     })
   }
 

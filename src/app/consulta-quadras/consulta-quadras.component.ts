@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-consulta-quadras',
+  selector: 'consulta-quadras',
   templateUrl: './consulta-quadras.component.html',
   styleUrls: ['./consulta-quadras.component.css']
 })
